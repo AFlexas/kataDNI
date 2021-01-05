@@ -1,10 +1,9 @@
-from las_listas import Listas
+from src.las_listas import Listas
 class DNI:
 
     def __init__(self, numero):
         self.numero = str(numero)
 
-    
     def dni_correcto(self):
         if len(self.numero) != 8:
             raise ValueError("DNI no correcto")
@@ -18,12 +17,10 @@ class DNI:
         x = numero % len(Listas.lista_letras)
         letra_encontrada = Listas.lista_letras[x]
         complete_dni = str(numero) + letra_encontrada
-        # (Listas.lista_letras[x])
         assert isinstance(complete_dni, str)
         assert len(complete_dni) == 9 
         return complete_dni
     
-
     @staticmethod
     def mala_letra(letra_encontrada):
         if letra_encontrada in Listas.letras_pochas:
